@@ -14,12 +14,14 @@ export const personalInfo = {
   bio: [
     "I'm Sowjanya Chandran, an M.Sc. Information Technology graduate building modern web applications with Python on the server and React on the screen.",
     "My early career on the Vodafone service floor taught me the most crucial software skill: listening to people describe problems ambiguously and deciphering what they actually need. Today, I combine that user-centric mindset with fullstack development and AI tooling.",
-    "I focus on understanding architectural layers deeply—clean React state, robust Python APIs, and practical AI integrations."
+    "I focus on understanding architectural layers deeply—clean React state, robust Python APIs, and practical AI integrations.",
+    "I learn best by building. My projects let me explore the full experience—from responsive interfaces and useful interactions to the data and logic that support them—and then refine the details that make an application easier to use.",
+    "I bring a patient, curious approach to new challenges: understand the problem first, break it into clear pieces, and keep learning through feedback, testing, and iteration."
   ],
   stats: [
     { label: "Degree Percentage", value: "83%", sub: "M.Sc. IT (Anna Univ)" },
     { label: "Core Stacks", value: "React + Python", sub: "Frontend & Backend" },
-    { label: "Projects Built", value: "7+", sub: "Fullstack & Interactive" },
+    { label: "Projects Built", value: "5+", sub: "Fullstack & Interactive" },
     { label: "Status", value: "Ready to Ship", sub: "Open for Hire" }
   ]
 };
@@ -28,7 +30,7 @@ export const skillCategories = [
   {
     name: "Frontend Engineering",
     icon: "Layout",
-    color: "#E3A32B", // turmeric
+    color: "#e9b44c", // turmeric
     skills: [
       { name: "React.js", level: "Advanced", desc: "Hooks, Router, State Management, Custom Components" },
       { name: "JavaScript (ES6+)", level: "Advanced", desc: "Async/Await, DOM manipulation, Functional programming" },
@@ -41,7 +43,7 @@ export const skillCategories = [
   {
     name: "Python & Backend Systems",
     icon: "Server",
-    color: "#C8483C", // madder
+    color: "#d2604a", // madder
     skills: [
       { name: "Python 3", level: "Advanced", desc: "Core data structures, OOP, scripting & automation" },
       { name: "FastAPI / Flask", level: "Proficient", desc: "RESTful API endpoints, request validation, JSON routing" },
@@ -52,7 +54,7 @@ export const skillCategories = [
   {
     name: "AI & Data Tooling",
     icon: "Sparkles",
-    color: "#4E9C8A", // leaf
+    color: "#45bfa1", // leaf
     skills: [
       { name: "LLM APIs & Prompting", level: "Active Learning", desc: "Prompt design, context window management, AI assistants" },
       { name: "Pandas & NumPy", level: "Proficient", desc: "DataFrames, data cleaning, aggregation, matrix ops" },
@@ -73,6 +75,50 @@ export const skillCategories = [
 
 export const projectsData = [
   {
+    id: "portfolio-page",
+    title: "Sowjanya Portfolio: This Interactive Site",
+    tagline: "Self-referential portfolio with animated warp threads, aurora mesh, and live project previews",
+    category: "React & Frontend",
+    animationType: "portfolio",
+    badge: "Meta Project",
+    badgeColor: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
+    description: "The portfolio you're viewing right now. Built with React 19, Vite, and Tailwind CSS. Features a custom WebGL warp canvas, intersection-observer scroll reveals, and a Python code playground running in the browser.",
+    longDescription: "A meta-project demonstrating the portfolio itself as an interactive artifact. The warp thread background responds to mouse movement, sections reveal on scroll with staggered timing, and the Python playground executes real code snippets via a simulated terminal. Every project card links to a live preview modal with unique interactive demos.",
+    tags: ["React 19", "Tailwind CSS", "WebGL Canvas", "IntersectionObserver", "Python Playground", "Vite"],
+    accentColor: "#45bfa1",
+    shortTitle: "Portfolio Site",
+    liveUrl: "#top",
+    repoUrl: "https://github.com/rcsowjichandran-pixel",
+    githubUrl: "https://github.com/rcsowjichandran-pixel",
+    year: "2026",
+    role: "Fullstack Developer",
+    status: "Live",
+    metrics: ["5 Projects", "6 Sections", "Warp Canvas"],
+    highlights: [
+      "Custom WebGL warp thread canvas with mouse-reactive physics",
+      "Scroll-triggered reveal animations via IntersectionObserver",
+      "Interactive Python playground with 3 executable snippets",
+      "Project preview modals with unique interactive prototypes per project (4 live projects)",
+      "Responsive design from 360px mobile to 4K desktop"
+    ],
+    previewData: {
+      features: [
+        { name: "Warp Canvas", type: "WebGL", desc: "Mouse-reactive thread simulation", status: "Active" },
+        { name: "Scroll Reveal", type: "IntersectionObserver", desc: "Staggered section animations", status: "Active" },
+        { name: "Python Playground", type: "Simulated Terminal", desc: "3 runnable code snippets", status: "Active" },
+        { name: "Project Previews", type: "Modal Sandboxes", desc: "4 live project demos", status: "Active" },
+        { name: "Aurora Mesh", type: "CSS Gradient", desc: "Layered ambient background", status: "Active" },
+        { name: "Grain Overlay", type: "CSS Filter", desc: "Subtle film grain texture", status: "Active" }
+      ],
+      techStack: [
+        "React 19", "Vite 6", "Tailwind CSS 3", "Lucide Icons", "canvas-confetti"
+      ],
+      performance: {
+        lcp: "~1.2s", fid: "<50ms", cls: "<0.05", bundle: "~350KB gzipped"
+      }
+    }
+  },
+  {
     id: "food-blog",
     title: "SavorLoom: Food Blog & AI Recipe Studio",
     tagline: "Rich culinary discovery platform with flavor profile radar and smart ingredient match",
@@ -83,8 +129,20 @@ export const projectsData = [
     description: "An enticing, highly interactive food and culinary storytelling application. Features live dietary category filters, step-by-step interactive cooking mode, and ingredient scaling with subtle steaming aroma animations.",
     longDescription: "Built with React and Tailwind CSS, this culinary application reimagines online recipe curation. Users can toggle between South Indian delicacies, continental brunch, and vegan staples with dynamic nutritional calculation.",
     tags: ["React.js", "Tailwind CSS", "Aroma Micro-Animations", "Interactive Recipe Studio", "State Management"],
-    accentColor: "#E3A32B",
+    accentColor: "#e9b44c",
+    shortTitle: "Food Blog",
+    liveUrl: "https://rcsowjichandran-pixel.github.io/day1/task.html",
+    repoUrl: "https://github.com/rcsowjichandran-pixel",
     githubUrl: "https://github.com/rcsowjichandran-pixel",
+    year: "2026",
+    role: "Frontend Engineer",
+    status: "Live",
+    metrics: ["4 Recipe Categories", "9 Curated Dishes", "Newsletter Flow"],
+    highlights: [
+      "Deep-link routing across Home, Blog, Recipes and Write an Article flows",
+      "Client-side account modal with credential validation and profile update panel",
+      "Responsive newsletter blocks, trending rail and category filter components"
+    ],
     previewData: {
       recipes: [
         { name: "Chettinad Pepper Mushroom", time: "25 mins", cal: "280 kcal", veg: true, spice: "High", origin: "Tamil Nadu" },
@@ -107,7 +165,19 @@ export const projectsData = [
     longDescription: "Engineered to give project managers real-time oversight of ongoing structural sites across Tamil Nadu. Features an interactive blueprint viewer with laser drafting guides and material inventory tracker.",
     tags: ["React", "Python Data Model", "Laser Scan Animation", "Blueprint CAD View", "Cost Estimator"],
     accentColor: "#06B6D4",
+    shortTitle: "Construction ERP",
+    liveUrl: "https://construction-wczs.vercel.app/",
+    repoUrl: "https://github.com/rcsowjichandran-pixel",
     githubUrl: "https://github.com/rcsowjichandran-pixel",
+    year: "2026",
+    role: "Fullstack Developer",
+    status: "Live",
+    metrics: ["4 Active Sites", "92% Concrete Phase", "99.8% Safety"],
+    highlights: [
+      "Live milestone ledger tracking stage-wise physical progress per site",
+      "Animated CAD blueprint viewer with laser drafting guide overlay",
+      "Material cost estimator rolled up against budget per project block"
+    ],
     previewData: {
       metrics: [
         { label: "Active Sites", value: "4 Projects", status: "On Track" },
@@ -133,7 +203,19 @@ export const projectsData = [
     longDescription: "Designed for IT operations teams to monitor client servers, SLA timelines, and hardware diagnostics in real time. Features a pulsing telemetry beacon and terminal log view.",
     tags: ["React 19", "Python API Gateway", "Cyber Matrix Glow", "Telemetry Monitor", "ITSM Dashboard"],
     accentColor: "#10B981",
+    shortTitle: "Vetri IT Systems",
+    liveUrl: "https://vetri-dr3a.vercel.app/",
+    repoUrl: "https://github.com/rcsowjichandran-pixel",
     githubUrl: "https://github.com/rcsowjichandran-pixel",
+    year: "2026",
+    role: "Fullstack Developer",
+    status: "Live",
+    metrics: ["99.98% Uptime", "1,420+ Tickets", "3 Cluster Nodes"],
+    highlights: [
+      "Service-desk workspace for enterprise IT products and support plans",
+      "Realtime telemetry beacon with latency, load and node health readouts",
+      "Ticket escalation queue wired to severity-based routing rules"
+    ],
     previewData: {
       systems: [
         { name: "Chennai Main Cluster (srv-chn-01)", latency: "14ms", status: "Healthy", load: "42%" },
@@ -156,7 +238,19 @@ export const projectsData = [
     longDescription: "Transforms traditional paper invitations into a sustainable, interactive keepsake. Guests can listen to traditional instrumental music, view muhurtham timings, RSVP with diet preferences, and tap for venue GPS navigation.",
     tags: ["React", "Floating Petals Animation", "Golden Ribbon Unfold", "Audio Ambiance", "Interactive RSVP"],
     accentColor: "#F43F5E",
+    shortTitle: "Wedding Invitation",
+    liveUrl: "https://wedding-seven-iota-39.vercel.app/",
+    repoUrl: "https://github.com/rcsowjichandran-pixel",
     githubUrl: "https://github.com/rcsowjichandran-pixel",
+    year: "2026",
+    role: "Frontend Developer",
+    status: "Live",
+    metrics: ["3 Ceremonies", "RSVP Ledger", "Ambient Audio"],
+    highlights: [
+      "Gold ribbon unfold intro with floating petal and shimmer particle drift",
+      "Muhurtham timetable plus one-tap venue navigation for guests",
+      "RSVP ledger capturing guest count and dietary preferences live"
+    ],
     previewData: {
       couple: "Anand & Priya",
       date: "Sunday, November 29, 2026",
@@ -168,67 +262,26 @@ export const projectsData = [
         { time: "Nov 29, 12:30 PM", name: "Traditional Virundhu", note: "Grand festive banquet feast" }
       ]
     }
-  },
-  {
-    id: "hospital-system",
-    title: "CarePulse: Hospital Appointment System",
-    tagline: "Dynamic healthcare booking interface with live EKG heartbeat monitor & persistent records",
-    category: "Fullstack & Python",
-    animationType: "hospital",
-    badge: "Core Project",
-    badgeColor: "bg-red-500/20 text-red-300 border-red-500/30",
-    description: "A booking interface with client-side form validation and database-backed records, so appointments persist safely and bad input is caught before it is stored.",
-    longDescription: "Addresses patient scheduling hurdles by eliminating double-bookings and validating health card identifiers instantly. Built with responsive feedback and clean data models.",
-    tags: ["Bootstrap / React", "Python Backend", "Heartbeat EKG Animation", "Form Validation", "Database Persistence"],
-    accentColor: "#EF4444",
-    originalUrl: "https://rcsowjichandran-pixel.github.io/day1/bootstrap/hospital.html",
-    githubUrl: "https://github.com/rcsowjichandran-pixel",
-    previewData: {
-      departments: ["Cardiology", "Neurology", "General Medicine", "Pediatrics"],
-      activeSlotsToday: 24,
-      patientSatisfaction: "98.5%"
-    }
-  },
-  {
-    id: "product-shopping",
-    title: "LoomKart: Product Shopping Hub",
-    tagline: "Responsive product catalogue with 3D tilt interaction and instant cart feedback",
-    category: "React & Frontend",
-    animationType: "shopping",
-    badge: "Core Project",
-    badgeColor: "bg-amber-500/20 text-amber-300 border-amber-500/30",
-    description: "A responsive product catalogue with reusable product cards, category content, and a clear shopping-focused layout built for swift navigation.",
-    longDescription: "Developed to master component reusability and dynamic cart interactions. Featuring product card hover elevations and reactive category filtration.",
-    tags: ["Tailwind CSS", "React State", "3D Tilt Card", "Catalog Filters", "Cart Drawer"],
-    accentColor: "#F59E0B",
-    originalUrl: "https://rcsowjichandran-pixel.github.io/day1/tailwind/task2.html",
-    githubUrl: "https://github.com/rcsowjichandran-pixel",
-    previewData: {
-      categories: ["Electronics", "Handloom Cottons", "Smart Gadgets", "Accessories"],
-      avgRating: "4.8 / 5"
-    }
-  },
-  {
-    id: "course-landing",
-    title: "TechSprint: Online Course Platform",
-    tagline: "Responsive marketing portal with kinetic badges and breakpoint optimization",
-    category: "React & Frontend",
-    animationType: "course",
-    badge: "Core Project",
-    badgeColor: "bg-indigo-500/20 text-indigo-300 border-indigo-500/30",
-    description: "A high-conversion landing page with hero section, curriculum cards, and clear calls to action built with rigorous breakpoint responsiveness.",
-    longDescription: "Demonstrates precision layout design, typography scaling, and high-impact calls to action optimized for all screen sizes.",
-    tags: ["Tailwind CSS", "HTML5 Semantics", "Kinetic Typography", "Responsive Layout", "Landing Page"],
-    accentColor: "#6366F1",
-    originalUrl: "https://rcsowjichandran-pixel.github.io/day1/tailwind/task8.html",
-    githubUrl: "https://github.com/rcsowjichandran-pixel",
-    previewData: {
-      enrolledStudents: "12,400+",
-      courseModules: "16 Lessons",
-      completionRate: "94%"
-    }
   }
 ];
+
+/**
+ * Derived, dynamic list of every project that has a real deployed URL.
+ * Used by the hero "live deployments" launcher and the navbar quick menu,
+ * so adding a `liveUrl` to any project above instantly surfaces it in the UI.
+ */
+export const liveDeployments = projectsData
+  .filter((project) => Boolean(project.liveUrl))
+  .map((project) => ({
+    id: project.id,
+    label: project.shortTitle || project.title,
+    title: project.title,
+    tagline: project.tagline,
+    url: project.liveUrl,
+    accent: project.accentColor,
+    status: project.status || 'Live',
+    category: project.category
+  }));
 
 export const careerTimeline = [
   {

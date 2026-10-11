@@ -1,8 +1,39 @@
 import React from 'react';
+import {
+  Award,
+  BrainCircuit,
+  CheckCircle,
+  Globe,
+  Languages,
+  Layers3,
+  MapPin,
+  MessageCircle
+} from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
-import { Quote, CheckCircle, Globe, MapPin, Languages, Award } from 'lucide-react';
+import Reveal from './Reveal';
 
 export default function AboutSection() {
+  const strengths = [
+    {
+      title: 'People-first thinking',
+      description: 'Listen closely, clarify the real need, and keep the experience approachable.',
+      icon: MessageCircle,
+      color: '#45bfa1'
+    },
+    {
+      title: 'Full-stack curiosity',
+      description: 'Connect thoughtful React interfaces with the Python logic and data behind them.',
+      icon: Layers3,
+      color: '#e9b44c'
+    },
+    {
+      title: 'Practical AI',
+      description: 'Explore AI as a useful part of an application, with purpose behind the integration.',
+      icon: BrainCircuit,
+      color: '#d2604a'
+    }
+  ];
+
   const quickFacts = [
     { label: 'Based In', value: 'Chennai, Tamil Nadu', icon: MapPin },
     { label: 'Role Flexibility', value: 'Remote & Hybrid Roles', icon: Globe },
@@ -15,44 +46,87 @@ export default function AboutSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         
         {/* Section Header */}
-        <div className="mb-12">
-          <div className="flex items-center gap-2 font-mono text-xs text-[#4e9c8a] tracking-widest uppercase mb-2">
-            <span>/ 05 narrative & context</span>
+        <Reveal className="mb-12">
+          <div className="flex items-center gap-2 font-mono text-xs text-[#45bfa1] tracking-widest uppercase mb-2">
+            <span>/ 05 beyond the code</span>
           </div>
-          <h2 className="font-['Bricolage_Grotesque',sans-serif] text-3xl sm:text-4xl lg:text-5xl font-bold text-[#f1eada] tracking-tight">
-            A little more
-          </h2>
-        </div>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <h2 className="font-['Bricolage_Grotesque',sans-serif] text-3xl sm:text-4xl lg:text-5xl font-bold text-[#edefe6] tracking-tight">
+              The person behind the problem-solving
+            </h2>
+            <p className="text-sm sm:text-base text-[#8ca79f] max-w-md leading-relaxed">
+              A little about how my experience, curiosity, and approach shape the way I build.
+            </p>
+          </div>
+        </Reveal>
 
         {/* Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
           
           {/* Narrative Body */}
-          <div className="lg:col-span-7 space-y-5 text-base sm:text-lg text-[#dcd6c8] leading-relaxed font-['Karla',sans-serif]">
-            <p>
-              My degrees are in information technology, but my first working years were spent on a Vodafone service floor in Karur—listening to people describe a problem badly and working out what they actually meant.
-            </p>
-            <p>
-              That turns out to be most of software. I've returned to development deliberately: mastering <span className="text-[#4e9c8a] font-semibold">Python</span> properly, architecting responsive <span className="text-[#e3a32b] font-semibold">React interfaces</span>, and integrating <span className="text-[#c8483c] font-semibold">AI tooling</span> into production workflows.
-            </p>
-            
-            {/* Pull Quote Box */}
-            <div className="border-l-4 border-[#e3a32b] pl-4 sm:pl-5 py-2 my-6 bg-[#182240]/50 rounded-r-xl">
-              <p className="font-['Bricolage_Grotesque',sans-serif] text-lg sm:text-xl font-semibold text-[#f1eada] italic leading-snug">
-                "I'm looking for a developer role on a team that reviews code, solves challenging problems, and expects me to grow fast."
-              </p>
-            </div>
+          <div className="lg:col-span-7 space-y-6">
+            <Reveal className="glass-panel rounded-3xl p-6 sm:p-8">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-10 rounded-xl bg-[#45bfa1]/10 border border-[#45bfa1]/25 flex items-center justify-center text-[#45bfa1]">
+                  <span className="font-mono text-sm">SC</span>
+                </div>
+                <div>
+                  <h3 className="font-['Bricolage_Grotesque',sans-serif] text-lg font-bold text-[#edefe6]">
+                    Hello, I’m {personalInfo.shortName}.
+                  </h3>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#8ca79f]">
+                    Developer · Listener · Lifelong learner
+                  </p>
+                </div>
+              </div>
 
-            <p className="text-sm sm:text-base text-[#96a0c0]">
-              I believe in deep layer comprehension over superficial buzzwords. Whether building stateful components, crafting performant database schemas, or debugging edge cases, I bring grit, attention to detail, and a user-first mindset.
-            </p>
+              <div className="space-y-4 text-[15px] sm:text-base text-[#d6ded5] leading-relaxed font-['Karla',sans-serif]">
+                {personalInfo.bio.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+
+              <div className="border-l-2 border-[#e9b44c] pl-4 sm:pl-5 py-2 mt-6 bg-[#10201e]/50 rounded-r-xl">
+                <p className="font-['Bricolage_Grotesque',sans-serif] text-lg sm:text-xl font-semibold text-[#edefe6] leading-snug">
+                  “I’m looking for a developer role on a team that reviews code, solves challenging problems, and expects me to grow fast.”
+                </p>
+              </div>
+            </Reveal>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {strengths.map((strength, index) => {
+                const Icon = strength.icon;
+                return (
+                  <Reveal key={strength.title} delay={index * 70}>
+                    <article className="glass-panel glass-panel-hover h-full rounded-2xl p-4 sm:p-5">
+                      <div
+                        className="w-9 h-9 rounded-xl border flex items-center justify-center mb-4"
+                        style={{
+                          color: strength.color,
+                          backgroundColor: `${strength.color}14`,
+                          borderColor: `${strength.color}40`
+                        }}
+                      >
+                        <Icon className="w-4 h-4" />
+                      </div>
+                      <h3 className="font-['Bricolage_Grotesque',sans-serif] text-sm font-bold text-[#edefe6] mb-2">
+                        {strength.title}
+                      </h3>
+                      <p className="text-xs text-[#8ca79f] leading-relaxed">
+                        {strength.description}
+                      </p>
+                    </article>
+                  </Reveal>
+                );
+              })}
+            </div>
           </div>
 
           {/* Quick Facts Sidebar */}
           <div className="lg:col-span-5 space-y-4">
-            <div className="glass-panel p-6 rounded-2xl border border-[#2c3a64] space-y-4">
-              <h3 className="font-mono text-xs uppercase tracking-wider text-[#e3a32b] border-b border-[#2c3a64] pb-2">
-                Candidate Profile Matrix
+            <div className="glass-panel p-6 rounded-2xl border border-[#1f3a36] space-y-4">
+              <h3 className="font-mono text-xs uppercase tracking-wider text-[#e9b44c] border-b border-[#1f3a36] pb-2">
+                A few quick details
               </h3>
               
               <div className="space-y-4">
@@ -60,12 +134,12 @@ export default function AboutSection() {
                   const Icon = fact.icon;
                   return (
                     <div key={fact.label} className="flex items-start gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-[#131c33] border border-[#2c3a64] flex items-center justify-center text-[#e3a32b] flex-none">
+                      <div className="w-8 h-8 rounded-lg bg-[#0a1413] border border-[#1f3a36] flex items-center justify-center text-[#e9b44c] flex-none">
                         <Icon className="w-4 h-4" />
                       </div>
                       <div>
-                        <div className="text-[11px] font-mono text-[#96a0c0] uppercase">{fact.label}</div>
-                        <div className="font-['Bricolage_Grotesque',sans-serif] font-bold text-sm sm:text-base text-[#f1eada]">
+                        <div className="text-[11px] font-mono text-[#8ca79f] uppercase">{fact.label}</div>
+                        <div className="font-['Bricolage_Grotesque',sans-serif] font-bold text-sm sm:text-base text-[#edefe6]">
                           {fact.value}
                         </div>
                       </div>
@@ -75,7 +149,7 @@ export default function AboutSection() {
               </div>
 
               {/* Ready to interview banner */}
-              <div className="mt-6 pt-4 border-t border-[#2c3a64] flex items-center gap-2.5 text-xs font-mono text-[#4e9c8a]">
+              <div className="mt-6 pt-4 border-t border-[#1f3a36] flex items-center gap-2.5 text-xs font-mono text-[#45bfa1]">
                 <CheckCircle className="w-4 h-4 flex-none" />
                 <span>Notice period: Immediate joiner available</span>
               </div>

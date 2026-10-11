@@ -20,9 +20,21 @@ export default function ContactSection() {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleCopy = (text, key) => {
+  const handleCopy = (text, key, e) => {
     navigator.clipboard.writeText(text);
     setCopiedKey(key);
+    if (e && e.clientX && e.clientY) {
+      const x = e.clientX / window.innerWidth;
+      const y = e.clientY / window.innerHeight;
+      confetti({
+        particleCount: 26,
+        spread: 40,
+        startVelocity: 14,
+        origin: { x, y },
+        colors: ['#45bfa1', '#e9b44c', '#d2604a'],
+        ticks: 50
+      });
+    }
     setTimeout(() => setCopiedKey(null), 2500);
   };
 
@@ -34,7 +46,7 @@ export default function ContactSection() {
       particleCount: 70,
       spread: 60,
       origin: { y: 0.7 },
-      colors: ['#E3A32B', '#C8483C', '#4E9C8A']
+      colors: ['#e9b44c', '#d2604a', '#45bfa1']
     });
   };
 
@@ -79,13 +91,13 @@ export default function ContactSection() {
         
         {/* Section Header */}
         <div className="mb-12">
-          <div className="flex items-center gap-2 font-mono text-xs text-[#c8483c] tracking-widest uppercase mb-2">
+          <div className="flex items-center gap-2 font-mono text-xs text-[#d2604a] tracking-widest uppercase mb-2">
             <span>/ 06 get in touch</span>
           </div>
-          <h2 className="font-['Bricolage_Grotesque',sans-serif] text-3xl sm:text-4xl lg:text-5xl font-bold text-[#f1eada] tracking-tight">
+          <h2 className="font-['Bricolage_Grotesque',sans-serif] text-3xl sm:text-4xl lg:text-5xl font-bold text-[#edefe6] tracking-tight">
             Let's talk
           </h2>
-          <p className="text-sm sm:text-base text-[#96a0c0] mt-2 max-w-xl">
+          <p className="text-sm sm:text-base text-[#8ca79f] mt-2 max-w-xl">
             Hiring, project inquiries, or discussing fullstack & AI development—email or phone is quickest.
           </p>
         </div>
@@ -102,7 +114,7 @@ export default function ContactSection() {
               return (
                 <div
                   key={m.key}
-                  className="p-4 rounded-xl bg-[#182240] border border-[#2c3a64] hover:border-[#e3a32b]/60 transition-all group flex items-center justify-between"
+                  className="p-4 rounded-xl bg-[#10201e] border border-[#1f3a36] hover:border-[#e9b44c]/60 transition-all group flex items-center justify-between"
                 >
                   <a
                     href={m.href}
@@ -110,12 +122,12 @@ export default function ContactSection() {
                     rel="noopener noreferrer"
                     className="flex items-center gap-3.5 min-w-0"
                   >
-                    <div className="w-10 h-10 rounded-lg bg-[#131c33] border border-[#2c3a64] flex items-center justify-center text-[#e3a32b] group-hover:scale-105 transition-transform flex-none">
+                    <div className="w-10 h-10 rounded-lg bg-[#0a1413] border border-[#1f3a36] flex items-center justify-center text-[#e9b44c] group-hover:scale-105 transition-transform flex-none">
                       <Icon className="w-5 h-5" />
                     </div>
                     <div className="min-w-0">
-                      <div className="text-[11px] font-mono text-[#96a0c0] uppercase">{m.label}</div>
-                      <div className="font-['Bricolage_Grotesque',sans-serif] font-bold text-sm text-[#f1eada] group-hover:text-[#e3a32b] transition-colors truncate">
+                      <div className="text-[11px] font-mono text-[#8ca79f] uppercase">{m.label}</div>
+                      <div className="font-['Bricolage_Grotesque',sans-serif] font-bold text-sm text-[#edefe6] group-hover:text-[#e9b44c] transition-colors truncate">
                         {m.value}
                       </div>
                     </div>
@@ -123,8 +135,8 @@ export default function ContactSection() {
 
                   {m.canCopy && (
                     <button
-                      onClick={() => handleCopy(m.value, m.key)}
-                      className="p-2 rounded-md hover:bg-[#131c33] text-[#96a0c0] hover:text-[#f1eada] transition-colors ml-2 cursor-pointer"
+                      onClick={(e) => handleCopy(m.value, m.key, e)}
+                      className="p-2 rounded-md hover:bg-[#0a1413] text-[#8ca79f] hover:text-[#edefe6] transition-colors ml-2 cursor-pointer"
                       title={`Copy ${m.label}`}
                     >
                       {isCopied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
@@ -136,12 +148,12 @@ export default function ContactSection() {
           </div>
 
           {/* Interactive Message Dispatcher Form */}
-          <div className="lg:col-span-7 glass-panel p-6 sm:p-8 rounded-2xl border border-[#2c3a64]">
-            <h3 className="font-['Bricolage_Grotesque',sans-serif] text-xl font-bold text-[#f1eada] mb-1 flex items-center gap-2">
-              <MessageSquare className="w-5 h-5 text-[#e3a32b]" />
+          <div className="lg:col-span-7 glass-panel p-6 sm:p-8 rounded-2xl border border-[#1f3a36]">
+            <h3 className="font-['Bricolage_Grotesque',sans-serif] text-xl font-bold text-[#edefe6] mb-1 flex items-center gap-2">
+              <MessageSquare className="w-5 h-5 text-[#e9b44c]" />
               Send a Direct Message
             </h3>
-            <p className="text-xs text-[#96a0c0] mb-6">
+            <p className="text-xs text-[#8ca79f] mb-6">
               Drop a note below and I will get back to you promptly.
             </p>
 
@@ -149,7 +161,7 @@ export default function ContactSection() {
               <div className="p-6 rounded-xl bg-emerald-950/40 border border-emerald-500/40 text-emerald-300 space-y-3 text-center">
                 <Sparkles className="w-8 h-8 mx-auto text-emerald-400 animate-bounce" />
                 <h4 className="font-bold text-lg">Message Dispatched Successfully!</h4>
-                <p className="text-xs text-[#96a0c0] max-w-md mx-auto">
+                <p className="text-xs text-[#8ca79f] max-w-md mx-auto">
                   Thank you for reaching out, {formData.name}. A notification has been registered and Sowjanya will reply to {formData.email}.
                 </p>
                 <button
@@ -163,56 +175,56 @@ export default function ContactSection() {
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-mono text-[#96a0c0] mb-1">Your Name</label>
+                    <label className="block text-xs font-mono text-[#8ca79f] mb-1">Your Name</label>
                     <input
                       type="text"
                       placeholder="Jane Doe"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       required
-                      className="w-full p-3 rounded-lg bg-[#131c33] border border-[#2c3a64] text-[#f1eada] text-sm focus:outline-none focus:border-[#e3a32b] transition-colors"
+                      className="w-full p-3 rounded-lg bg-[#0a1413] border border-[#1f3a36] text-[#edefe6] text-sm focus:outline-none focus:border-[#e9b44c] transition-colors"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-mono text-[#96a0c0] mb-1">Email Address</label>
+                    <label className="block text-xs font-mono text-[#8ca79f] mb-1">Email Address</label>
                     <input
                       type="email"
                       placeholder="jane@company.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       required
-                      className="w-full p-3 rounded-lg bg-[#131c33] border border-[#2c3a64] text-[#f1eada] text-sm focus:outline-none focus:border-[#e3a32b] transition-colors"
+                      className="w-full p-3 rounded-lg bg-[#0a1413] border border-[#1f3a36] text-[#edefe6] text-sm focus:outline-none focus:border-[#e9b44c] transition-colors"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono text-[#96a0c0] mb-1">Subject / Project Intent</label>
+                  <label className="block text-xs font-mono text-[#8ca79f] mb-1">Subject / Project Intent</label>
                   <input
                     type="text"
                     placeholder="Fullstack Developer Role / Project Collaboration"
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     required
-                    className="w-full p-3 rounded-lg bg-[#131c33] border border-[#2c3a64] text-[#f1eada] text-sm focus:outline-none focus:border-[#e3a32b] transition-colors"
+                    className="w-full p-3 rounded-lg bg-[#0a1413] border border-[#1f3a36] text-[#edefe6] text-sm focus:outline-none focus:border-[#e9b44c] transition-colors"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono text-[#96a0c0] mb-1">Your Message</label>
+                  <label className="block text-xs font-mono text-[#8ca79f] mb-1">Your Message</label>
                   <textarea
                     rows="4"
                     placeholder="Hi Sowjanya, we're impressed by your portfolio and would like to discuss..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     required
-                    className="w-full p-3 rounded-lg bg-[#131c33] border border-[#2c3a64] text-[#f1eada] text-sm focus:outline-none focus:border-[#e3a32b] transition-colors"
+                    className="w-full p-3 rounded-lg bg-[#0a1413] border border-[#1f3a36] text-[#edefe6] text-sm focus:outline-none focus:border-[#e9b44c] transition-colors"
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-3.5 rounded-lg bg-[#e3a32b] hover:bg-[#f2b53c] text-[#131c33] font-mono text-sm font-bold transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-3.5 rounded-lg bg-[#e9b44c] hover:bg-[#f3c362] text-[#0a1413] font-mono text-sm font-bold transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <Send className="w-4 h-4" />
                   Dispatch Message
